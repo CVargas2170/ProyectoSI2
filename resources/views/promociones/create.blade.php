@@ -11,22 +11,22 @@
     <div class="card-custom">
         <div class="card-header bg-secondary">
             <div class="card-title">
-                Creacion de Personal Administrativo
+                Crear Nueva Promocion
             </div>
             <div class="pull-right">
-                <a href="{{route('administrativos.index')}}" class="btn bnt-sm btn-warning float-right">
+                <a href="{{route('promociones.index')}}" class="btn bnt-sm btn-warning float-right">
                     <i class="fa fa-reply"></i>
                 </a>
             </div>
         </div>
         <div class="card-body">
            
-            <form action="{{route('administrativos.store')}}" method="POST" id="formulario">
+            <form action="{{route('promociones.store')}}" method="POST" id="formulario">
                 <fieldset> 
                     <center><legend>DATOS PERSONALES </legend></center>
                         @csrf 
                         @method('post')
-                        @include('administrativos.partial.form')
+                        @include('promociones.partial.form')
                         <div class="pull-right mt-3">
                             <button type="submit" class="btn btn-sm btn-success float-right">
                                 <i class="fa fa-save"></i>
@@ -55,9 +55,42 @@
             padding:2rem
 
         }
+
+        .contenedor{
+            border:1px black solid;
+
+        }
     </style>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+function llenarFoto2(){
+
+  var datos = $('#calzado_id').val();
+  var vector= datos.split('_');
+  document
+           .getElementById("picture")
+           .setAttribute("src","/img/"+vector[1]);
+
+  
+}
+         
+document.getElementById("file").addEventListener("change", cambiarImagen);
+
+function cambiarImagen(event) {
+   var file = event.target.files[0];
+
+   var reader = new FileReader();
+   reader.onload = (event) => {
+       document
+           .getElementById("picture")
+           .setAttribute("src", event.target.result);
+   };
+   reader.readAsDataURL(file);
+}
+    
+
+
+    </script>
 @stop

@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promocion', function (Blueprint $table) {
+        Schema::create('tallas', function (Blueprint $table) {
             $table->id();
-            $table->String('descripcion',100);
-            $table->dateTime('fecha_inicio');
-            $table->dateTime('fecha_fin');
-            $table->integer('descuento');
-            $table->unsignedBigInteger('calzado_id');
-            
+            $table->String('NumeroTalla',5);
         });
     }
 
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promocion');
+        Schema::dropIfExists('tallas');
     }
 };

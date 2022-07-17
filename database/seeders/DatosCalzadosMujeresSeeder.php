@@ -15,7 +15,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
     public function run()
     {
         
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Adidas',
             'precio' => 550.00,      
             'tipo' => 'mujer',
@@ -23,7 +23,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Turqueza',
             'imagen' => 'adidasverde.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 340.00,      
             'tipo' => 'mujer',
@@ -31,7 +31,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Black classic',
             'imagen' => 'calzadonike.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Fila',
             'precio' => 450.00,      
             'tipo' => 'mujer',
@@ -39,7 +39,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Black dark',
             'imagen' => 'filablack.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Fila',
             'precio' => 500.00,      
             'tipo' => 'mujer',
@@ -47,7 +47,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'white classic',
             'imagen' => 'filablanco.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Fila',
             'precio' => 550.00,      
             'tipo' => 'mujer',
@@ -55,7 +55,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'white cow',
             'imagen' => 'filawomanew.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 400.00,      
             'tipo' => 'mujer',
@@ -63,7 +63,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Air 7c pink',
             'imagen' => 'nikerosa.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 400.00,      
             'tipo' => 'mujer',
@@ -71,7 +71,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Air 7c pink',
             'imagen' => 'nikerose.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Puma',
             'precio' => 300.00,      
             'tipo' => 'mujer',
@@ -79,7 +79,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'colors play',
             'imagen' => 'pumacolorrr.jpg',
         ]);
-/*        DB::table('calzado')->insert([
+/*        DB::table('calzados')->insert([
             'marca' => 'Puma',
             'precio' => 400.00,      
             'tipo' => 'mujer',
@@ -87,7 +87,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Red wine',
             'imagen' => 'PumasXXY.jpg',
         ]);*/
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'C/Moran',
             'precio' => 290.00,      
             'tipo' => 'mujer',
@@ -95,7 +95,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'cream classic',
             'imagen' => 'z2.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'C/Moran',
             'precio' => 400.00,      
             'tipo' => 'mujer',
@@ -103,7 +103,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'light blue classic',
             'imagen' => 'z4.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'C/Moran',
             'precio' => 450.00,      
             'tipo' => 'mujer',
@@ -111,7 +111,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Purple classic',
             'imagen' => 'z5.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Adidas',
             'precio' => 250.00,      
             'tipo' => 'kidwoman',
@@ -119,7 +119,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Crema y celeste',
             'imagen' => 'adidas2019-F.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Adidas',
             'precio' => 450.00,      
             'tipo' => 'kidwoman',
@@ -127,7 +127,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Blanco y dorado',
             'imagen' => 'adidasdorado-W.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Adidas',
             'precio' => 300.00,      
             'tipo' => 'kidwoman',
@@ -135,7 +135,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'blanco con purpura',
             'imagen' => 'adidaspurple22-W.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'McQueen',
             'precio' => 360.00,      
             'tipo' => 'kidwoman',
@@ -143,7 +143,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Rosa completo',
             'imagen' => 'mcqueenrosa.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'McQueen',
             'precio' => 380.00,      
             'tipo' => 'kidwoman',
@@ -151,7 +151,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Palo de rosa',
             'imagen' => 'Mcqueen-rosabeige-2.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 550.00,      
             'tipo' => 'kidwoman',
@@ -159,7 +159,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Pinki',
             'imagen' => 'nikepinki.webb.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 590.00,      
             'tipo' => 'kidwoman',
@@ -167,7 +167,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'White y verde',
             'imagen' => 'nikeverde.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 650.00,      
             'tipo' => 'kidwoman',
@@ -175,7 +175,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Blanco moderm',
             'imagen' => 'nikewoman.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Nike',
             'precio' => 450.00,      
             'tipo' => 'kidwoman',
@@ -183,7 +183,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Guindo moderm',
             'imagen' => 'puma23.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Puma',
             'precio' => 380.00,      
             'tipo' => 'kidwoman',
@@ -191,7 +191,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Azul y rosado',
             'imagen' => 'pumablue.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Puma',
             'precio' => 440.00,      
             'tipo' => 'kidwoman',
@@ -199,7 +199,7 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'Rosa pink',
             'imagen' => 'pumapink.jpg',
         ]);
-        DB::table('calzado')->insert([
+        DB::table('calzados')->insert([
             'marca' => 'Puma',
             'precio' => 440.00,      
             'tipo' => 'kidwoman',

@@ -11,7 +11,7 @@
     <div class="card-custom">
         <div class="card-header bg-secondary">
             <div class="card-title">
-                Ventas:
+                Listado de Ventas:
             @if(session('success'))
                 <div class="alert alert-success" role="success">
                     {{session('success')}}
@@ -19,69 +19,66 @@
             @endif
            
             </div>
-           
+            
             <div class="pull-right">
-                <a href="{{route('ventas.pdf')}}"class="btn btn-sm btn-danger ml-2 float-left">
+                <a href="{{route('ventas.create')}}"class="btn btn-sm btn-danger ml-2 float-left">
                     <i class="fa fa-book"></i>
                     &nbsp;
-                    PDF
+                    
                 </a>
-            </div> 
-            
-           <!--   <div class=" pull-right">
-                
-              <a href="" class="btn btn-sm btn-warning float-right">
-                    <i class="fa fa-plus"></i>
-                    &nbsp;
-                    Crear Nuevo Administrativo
-                </a>
-
-            </div>-->
-            
-            
+            </div>     
         </div>
       
         <div class="card-body">         
-            <table id="miTabla" class="cell-border" style="width:100%">
+            <table id="miTabla" style="width:100%">
                 <thead class="bg-secondary">
                     <tr>
-                       <th>
+                       <th class="text-center">
                            Nombre
                        </th>
-                       <th>
-                           Fecha
+                       <th class="text-center">
+                           Monto Total
                        </th>
-                       <th>
-                           Cantidad
-                       </th>
-                       
-                       <th colspan="3" class="text-center">
+                       <th colspan="2" class="text-center">
                            Acciones
                        </th>
                     </tr>
                 </thead>
                 <tbody>
+                        @foreach($ventas  as $venta)
+                        <tr>
+                            <td class="text-center">
+                              {{$venta->cliente->nombre .' '. $venta->cliente->apellido}}
+                            </td>
+                            <td class="text-center">
+                                {{$venta->monto_total}}
+                            </td>
+                            {{-- @can('showVentas') --}}
+                                <td class="text-center">
+                                    <a href="{{route('ventas.show',$venta)}}" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye"></i>
+                                        &nbsp;
+                                        Ver
+                                    </a>
+                                </td>
 
-                    @foreach ($clientes as $cliente)
-
-                    @foreach ($cliente->ventas as $venta)
-                     <tr>
-                     
-                       <td>  {{ $cliente->nombre }} {{ $cliente->apellido }} </td>
-                       <td> {{$venta->fechahora}} </td>
-                       <td> {{$venta->monto_total}} </td>
-                       <td>             
-                        <a href="{{route('ventas.show',$venta)}}" class="btn btn-sm btn-info p-1">
-                            <i class="fa fa-eye"></i>
-                            &nbsp;
-                            Ver
-                        </a>
-                  
-                        </td>
-                     </tr>
-                    @endforeach
-                  
-                  @endforeach
+                            {{-- @endcan --}}
+                            <td class="text-center">
+                                <form action="{{route('ventas.destroy')}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" name="venta_id" id="venta_id" value="{{$venta->id}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                        &nbsp;
+                                        Eliminar
+                                    </button>
+                                </form>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    
                 </tbody>
                
             </table>

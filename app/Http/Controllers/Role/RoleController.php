@@ -44,7 +44,7 @@ class RoleController extends Controller
         $rol = Role::create($inputs);
         $rol->syncPermissions($permisos);
 
-        dd(count($permisos));
+        //dd(count($permisos));
         return redirect()->route('roles.index')->with('success','Rol Creado con Exito');
         
         

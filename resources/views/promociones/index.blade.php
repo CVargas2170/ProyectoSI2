@@ -20,7 +20,7 @@
 
             </div>
             <div class="pull-right">
-                <a href="#"class="btn btn-sm btn-warning float-right">
+                <a href="{{route('promociones.create')}}"class="btn btn-sm btn-warning float-right">
                     <i class="fa fa-plus"></i>
                     &nbsp;
                     Crear Nueva Promoción
@@ -29,58 +29,62 @@
         </div>
       
         <div class="card-body">         
-            <table id="miTabla" class="cell-border" style="width:100%">
+            <table id="miTabla"  class="table table-hover" style="width:100%">
                 <thead class="bg-secondary">
                     <tr>
-                       <th>
+                       <th class="text-center">
                            Descrpcion
                        </th>
-                       <th>
+                       <th class="text-center">
+                           Foto
+                       </th>
+                       <th class="text-center">
+                           Descuento Aplicado
+                       </th>
+                       <th class="text-center">
                            Fecha de inicio
                        </th>
-                       <th>
+                       <th class="text-center">
                            Fecha final
                        </th>
                        
-                       <th colspan="3" class="text-center">
+                       <th colspan="2" class="text-center">
                            Acciones
                        </th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($promociones as $promocion)
+                    @foreach($promocioness as $promocion)
                         <tr>
-                            <td>
+                            <td class="text-center">
                                 {{$promocion->descripcion}}
                             </td>
-                            <td>
+                            <td class="text-center">
+                                <img src="/img/{{$promocion->imagen}}" alt="" width="80px" height="90px">
+                            </td>
+                            <td class="text-center">
+                                {{$promocion->descuento}} % 
+                            </td>
+                            <td class="text-center">
                                 {{$promocion->fecha_inicio}}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {{$promocion->fecha_fin}}
                             </td>
-                            
-                       
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning p-1">
+                                <a href="{{route('promociones.edit',$promocion)}}" class="btn btn-sm btn-warning p-1">
                                     <i class="fa fa-edit"></i>
                                     &nbsp;
                                     Editar
                                 </a>
                             </td>
+                            
                             <td>
-                                <a href="#" class="btn btn-sm btn-info p-1">
-                                    <i class="fa fa-eye"></i>
-                                    &nbsp;
-                                    Ver
-                                </a>
-                            </td>
-                            <td>
-                                <form action="#" method="post">
+                                <form action="{{route('promociones.destroy')}}" method="post">
                                     @csrf 
                                     @method('DELETE')
-                                    <input type="hidden" id="admin_id" name="admin_id" value="{{$promocion->id}}">
+                                    <input type="hidden" id="promocion_id" name="promocion_id" value="{{$promocion->id}}">
                                     <div class="pull-right">
                                         <button class="btn btn-sm btn-danger float-right p-1" >
                                             <i class="fa fa-trash"></i>

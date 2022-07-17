@@ -277,7 +277,7 @@ return [
         [
             'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
-           // 'can' => 'Ver-compras',
+            'can' => 'creaRoles',
             'submenu' => [
                 [
                     'text' => 'Roles',
@@ -316,17 +316,17 @@ return [
             ],
         ],
 
-   /*     [
+       [
             'text' => 'Promociones',
-           'route'  => 'Inicio1',
+           'route'  => 'promociones.index',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
-        ],*/
+        ],
 
         [
             'text' => 'Ventas',
-           'route'  => 'ventas',
+           'route'  => 'ventas.index',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
@@ -336,7 +336,7 @@ return [
            'route'  => 'bitacoras.index',
 
             'icon' => 'fas fa-fire-alt',
-            //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
+            'can' => 'VerBitacora', // ASIGNACION DEL PERMISO
         ],
 
         ['header' => 'Negocio'],
