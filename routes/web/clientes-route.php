@@ -22,5 +22,7 @@ Route::prefix('clientes')->name('clientes.')->middleware(['auth'])->group(functi
     Route::delete('/delete',[ClienteController::class,'destroy'])->name('destroy');
 
     Route::get('/loginregister',[Cliente1Controller::class,'index'])->name('loginregister');
+  
+
 });
 

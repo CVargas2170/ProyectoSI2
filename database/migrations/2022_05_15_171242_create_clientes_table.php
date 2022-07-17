@@ -21,6 +21,8 @@ return new class extends Migration
             $table->String('email');
             $table->unsignedSmallInteger('estado')->default(1);
             $table->unsignedSmallInteger('tipo')->default(2);
+            //campo tipo cliente(si es nuevo) unsignedSmallInteger
+                
             $table->timestamps();
         });
     }
@@ -33,5 +35,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('clientes');
+   
     }
 };

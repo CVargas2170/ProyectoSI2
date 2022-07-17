@@ -31,8 +31,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-    <link rel="stylesheet" href="{{secure_asset('css/s1.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{asset('css/s1.css')}}">
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css">
   </head>
 
@@ -417,7 +417,7 @@
                 <div class="card-body">             
                   <div class="titulo text-center ">Regístrate</div><br>
                   <h6 class="card-title text-center">Complete los campos</h6>
-                  <form action ="" method="POST" id="" >
+                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
                     @csrf 
                     @method('POST')
                     <div class="input-group ">

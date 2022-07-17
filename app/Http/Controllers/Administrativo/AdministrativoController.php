@@ -9,7 +9,11 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Models\Bitacora\Bitacora;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Calzado;
+use App\Models\Cliente\Cliente;
+use App\Models\Lista;
+use Illuminate\Support\Facades\Auth;
 class AdministrativoController extends Controller
 {
     /**
@@ -22,17 +26,77 @@ class AdministrativoController extends Controller
         $administrativos = Administrativo::get();
         return view('administrativos.index',compact('administrativos'));
     }
+    public function lista(Request $request){
 
+        $inputs = $request->all();
+        $iduser = $inputs['iduser'];
+        $administrativo =$inputs['administrativo'];
+        $clienteid = $inputs['idcliente'];
+        $admin = Administrativo::where('nombre',$administrativo)->first(); 
+        Lista::create([
+            'cliente_id' =>  $clienteid,
+            'administrativo_id' =>$admin->id,
+          ]);
+        $cliente =Cliente::where('id',$clienteid)->first(); 
+          $cliente->update([
+            'tipo_cliente' => 2,
+        ]);
+        return redirect()->route('clientes.index')->with('Exitoso','Cliente añadido');
+    }
+       
+
+    public function asignados(){
+        $user_id = Auth::user()->id;
+        $user_email =Auth::user()->email;
+        $admin1 = Administrativo::where('correo',$user_email)->first();
+        $listas = Lista::where('administrativo_id',$admin1->id)->get();
+        $clientes = Cliente::get();
+       return view('administrativos.asignados',compact('user_id','listas','clientes'));
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function calzado(){
+        $calzados = DB::table('calzado')->get();
+        return view('calzados.index',compact('calzados'));
+     }
     public function create()
     {
-        return view('administrativos.create');
+        $usuarios = User::where('tipo_id',3)->get();
+        return view('administrativos.create',compact('usuarios'));
     }
 
+    public function create1()
+    {
+        return view('calzado.create');
+    }
+
+    public function store1(Request $request)
+    {
+        $inputs = $request->all();
+        $admin = Calzado::create($inputs);
+        $persona_id = $admin->id;
+        $nombre = $inputs['nombre'];
+        $email = $inputs['correo'];
+        $ci = $inputs['ci'];
+        $rol_id = 1; 
+       // dd($inputs);
+
+       Bitacora::create([
+        'user_id' => 1,
+        'accion' => Bitacora::TIPO_CREO,
+        'tabla' => 'administrativos',
+        'datos' => 'Se agregaron los siguiente datos '.
+         $inputs['nombre'] . $inputs['correo'] . $inputs['ci'] .'con rol administrativo', 
+
+      ]);
+
+        $this->crearUsuario($nombre,$email,$ci,$rol_id,$persona_id);
+        return redirect()->route('administrativos.index')->with('success','Administrativo Creado con Exito');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -49,8 +113,9 @@ class AdministrativoController extends Controller
         $ci = $inputs['ci'];
         $rol_id = 1; 
        // dd($inputs);
+      //  $admin1 = $inputs['administrativo'];
 
-       Bitacora::create([
+        Bitacora::create([
         'user_id' => 1,
         'accion' => Bitacora::TIPO_CREO,
         'tabla' => 'administrativos',
