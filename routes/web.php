@@ -38,10 +38,8 @@ Route::get('perfil',[Cliente1Controller::class,'perfil'])->name('perfil');
 Route::get('Promociones',[PromocionController::class,'index'])->name('Inicio1');
 
 Route::get('/LoginAdmin', function () {
-
-   
     return view('auth.login');
-});
+})->name('Salida');
 
 /*Route::get('/', function () {
 

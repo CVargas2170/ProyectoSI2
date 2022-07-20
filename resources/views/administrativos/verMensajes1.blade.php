@@ -12,7 +12,7 @@
 <div class="card-custom">
     <div class="card-header">
         <div class="pull-right">
-            <a href="{{route('administrativos.asignados')}}" class="btn btn-warning float-right">Volver
+            <a href="{{route('administrativos.asignados')}}" class="btn btn-warning float-right">
                 <i class="fa fa-reply"></i>
             </a>
         </div>
@@ -27,10 +27,10 @@
                 @foreach($mensajes as $men)
                 
                     @if($men->tipo=='1')
-                       {{$men->descrpcion}}
+                       {{$men->mensaje}}
                         
                     @else
-                   {{'                                                              '.$men->descrpcion}} 
+                   {{'                                                              '.$men->mensaje}} 
                     @endif
                 @endforeach
             </textarea>

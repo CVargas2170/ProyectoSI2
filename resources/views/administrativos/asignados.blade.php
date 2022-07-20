@@ -80,24 +80,18 @@
                             <td>                              
                                 {{$clientes->where('id',$lista->cliente_id)->first()->email}}                            
                             </td>
-<<<<<<< HEAD
-=======
-                            <td>
-                
-                                
-                                {{$clientes->where('id',$lista->cliente_id)->first()->apellido}}
-                              
-                          </td>
+
+                          
                           <td class="text-center">
                               
                                 <a href="{{route('administrativos.viewMessages',$clientes->where('id',$lista->cliente_id)->first()->id)}}">
                                     <i class="fa fa-sms"></i>
                                     &nbsp;
-                                    Ver SMS
+                                    Ver SMS {{$lista->cliente_id}} {{$admin2}}
                                 </a>
 
                           </td>
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
 
                         </tr>
                     @endforeach

@@ -142,25 +142,25 @@ class ClienteController extends Controller
           ])->get(); 
           if(count($consulta)>=1 ){  
             $promociones = Promocion::all();
-<<<<<<< HEAD
-            $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
+
+     /*       $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
             $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
             $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
             $hombres =   DB::table('calzado')->where('tipo','=','hombre')->get();   
             $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
             $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
             $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
-            $cliente=   DB::table('clientes')->where('email','=', $email)->first();
-=======
-            $calzados =  DB::table('calzados')->where('estado','=','Promocion')->get();
+            $cliente=   DB::table('clientes')->where('email','=', $email)->first();*/
+
+          $calzados =  DB::table('calzados')->where('estado','=','Promocion')->get();
             $calzados1 = DB::table('calzados')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
             $calzados2 = DB::table('calzados') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
             $hombres =   DB::table('calzados')->where('tipo','=','hombre')->get();   
             $niños =     DB::table('calzados') ->where('tipo','=','kidman')->get();
             $mujeres =   DB::table('calzados')->where('tipo','=','mujer')->get();   
             $niñas =     DB::table('calzados') ->where('tipo','=','kidwoman')->get(); 
+            $cliente=   DB::table('clientes')->where('email','=', $email)->first();
 
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
             $nombre = DB::table('users')->where('email','=', $email)->value('name');
             $id =DB::table('users')->where('email','=', $email)->value('id');
             return view('tienda.perfil',compact('calzados','calzados1','calzados2',

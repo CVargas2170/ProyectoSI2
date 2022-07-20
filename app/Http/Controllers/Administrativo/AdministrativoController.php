@@ -14,7 +14,7 @@ use App\Models\Calzado;
 use App\Models\Cliente\Cliente;
 use App\Models\Lista;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Mensaje\Mensaje;
+use App\Models\Mensaje;
 
 
 class AdministrativoController extends Controller
@@ -51,10 +51,10 @@ class AdministrativoController extends Controller
    
 
     public function showMessage(Cliente $cliente){
-
+        $id = Auth::user()->id;
         $mensajes = Mensaje::where('cliente_id',$cliente->id)->get();
         //dd($mensajes);
-        return view('administrativos.verMensajes',compact('mensajes','cliente'));
+        return view('administrativos.verMensajes',compact('mensajes','cliente','id'));
 
     }
        
@@ -74,9 +74,10 @@ class AdministrativoController extends Controller
         $user_email =Auth::user()->email;
         $admin1 = Administrativo::where('correo',$user_email)->first();
         $listas = Lista::where('administrativo_id',$admin1->id)->get();
+        $admin2= $admin1->id;
         $clientes = Cliente::get();
         $administrativos = Administrativo::get();
-       return view('administrativos.asignados',compact('listas','clientes','administrativos'));
+       return view('administrativos.asignados',compact('listas','clientes','administrativos','admin2'));
     }
     /**
      * Show the form for creating a new resource.
