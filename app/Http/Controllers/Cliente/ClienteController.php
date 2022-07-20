@@ -142,6 +142,7 @@ class ClienteController extends Controller
           ])->get(); 
           if(count($consulta)>=1 ){  
             $promociones = Promocion::all();
+<<<<<<< HEAD
             $calzados =  DB::table('calzados')->where('estado','=','Promocion')->get();
             $calzados1 = DB::table('calzados')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
             $calzados2 = DB::table('calzados') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
@@ -150,10 +151,20 @@ class ClienteController extends Controller
             $mujeres =   DB::table('calzados')->where('tipo','=','mujer')->get();   
             $niñas =     DB::table('calzados') ->where('tipo','=','kidwoman')->get(); 
 
+=======
+            $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
+            $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
+            $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
+            $hombres =   DB::table('calzado')->where('tipo','=','hombre')->get();   
+            $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+            $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
+            $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
+            $cliente=   DB::table('clientes')->where('email','=', $email)->first();
+>>>>>>> 4613c0e550339a0b3b1be29891212546cc2fba5b
             $nombre = DB::table('users')->where('email','=', $email)->value('name');
             $id =DB::table('users')->where('email','=', $email)->value('id');
             return view('tienda.perfil',compact('calzados','calzados1','calzados2',
-                        'hombres','niños','mujeres','niñas','nombre','id','promociones'));
+                        'hombres','niños','mujeres','niñas','nombre','id','promociones','cliente'));
      //   return view('tienda.prueba',compact('nombre','id'));
         }else{
             return "Datos incorrectos";

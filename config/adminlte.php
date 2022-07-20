@@ -408,35 +408,35 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
@@ -446,24 +446,24 @@ asset' => false,
             'files' => [
                 [
                     'type' => 'js',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
@@ -473,13 +473,12 @@ asset' => false,
             'files' => [
                 [
                     'type' => 'js',
-<<<<<<< HEAD
-                    '
 
+                    '
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
@@ -489,13 +488,13 @@ asset' => false,
             'files' => [
                 [
                     'type' => 'js',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],
@@ -505,24 +504,24 @@ asset' => false,
             'files' => [
                 [
                     'type' => 'css',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
                 ],
                 [
                     'type' => 'js',
-<<<<<<< HEAD
+
                     '
 
 asset' => false,
-=======
+
                     'asset' => false,
->>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
+
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],

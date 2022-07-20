@@ -34,14 +34,15 @@
 
     <title>CalzadoManía</title>
      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    @livewireStyles
+    @livewireScripts
     <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
+   <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+crossorigin="anonymous">
     <!--Fuentes-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,6 +126,7 @@ asset('css/oficial.css')}}">
   </div>
 
     <div class="tab-content" id="pills-tabContent">
+<<<<<<< HEAD
       <div class="tab-pane fade show active" id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
 
           <section class="main">
@@ -141,6 +143,9 @@ asset('css/oficial.css')}}">
             </div>
         </section>
 
+=======
+      <div class="tab-pane fade " id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
+>>>>>>> 4613c0e550339a0b3b1be29891212546cc2fba5b
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
           <ol class="carousel-indicators">
             @forelse ($promociones as $promocion)
@@ -520,8 +525,48 @@ asset('css/oficial.css')}}">
         </form>
       </div>
     
-      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">  
-    
+      <div class="tab-pane fade show active" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">  
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Cuenta</h2>
+          </div>
+        </div><br>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="list-group ">
+                <div class="card-header">Cuenta</div><br>
+                <h6 class="card-title">Información del contacto</h6>
+                <div class="card-body">
+                  <label>Nombre del cliente</label>
+                  <p class="card-text">   {{$cliente->nombre}}  {{$cliente->apellido}}  </p>   
+                  <label>Correo electrónico del cliente</label>
+                  <p class="card-text">   {{$cliente->email}}  </p>  
+                  <label>Teléfono de contacto del cliente</label>
+                  <p class="card-text">   {{$cliente->telefono}}  </p>
+                </div>
+           
+            </div>
+          </div>
+          <div class="col-sm-5">
+            Notificaciones
+
+          </div>
+          <div class="col-sm-5">
+            <h4 class="card-title">Chat</h4>
+            <div class="card" >
+              <div class="card-body">      
+                @livewire('chat-list', ['id' => $id])
+                @livewire('chat-form', ['id' => $id])
+                
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
+
       </div>
     
     </div>
@@ -533,18 +578,21 @@ asset('css/oficial.css')}}">
         </p>
      </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.js" 
+     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+     crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
 
 
      <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
+=======
+ <!--     <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
+>>>>>>> 4613c0e550339a0b3b1be29891212546cc2fba5b
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
+<<<<<<< HEAD
 
 
 
@@ -570,5 +618,10 @@ asset('css/oficial.css')}}">
     <script src="js/scripts.js">   
  
     </script>
+=======
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+>>>>>>> 4613c0e550339a0b3b1be29891212546cc2fba5b
   </body>
 </html>
