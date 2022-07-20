@@ -84,15 +84,20 @@ Route::get('/home',function(){
     
     return view('tienda.home');
 });
+<<<<<<< HEAD
 Route::post('/store',[ClienteController::class,'store2'])->name('store');
 Route::get('/base' ,function(){return view('tienda.login.conexion');});
 Route::post('/Sesión-Iniciada',[ClienteController::class,'loginCliente1'])->name('loguear');
 Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
+=======
+<<<<<<< HEAD
+>>>>>>> 30b5f2d5a493b5ecdf856e301e9ec4887df2214c
 
 Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
 //Route::post('/carrito/{arreglo}',[CarritoController::class,'compra'])->name('compra');
 
 
+<<<<<<< HEAD
 //Carrito
 Route::post('/carrito',[CarritoController::class,'compra'])->name('comprita');
 
@@ -111,3 +116,7 @@ Route::put('/update/{bitacora}',[BitacoraController::class,'update'])->name('bit
 Route::delete('/delete',[BitacoraController::class,'destroy'])->name('bitacoras.destroy');
 
 //clientes
+=======
+=======
+>>>>>>> e5c1c52611e8334d94db754e8f1def13920731ab
+>>>>>>> 30b5f2d5a493b5ecdf856e301e9ec4887df2214c
