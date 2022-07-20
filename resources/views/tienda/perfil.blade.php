@@ -17,6 +17,7 @@
         }
        }
       }        
+
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#bla"  />
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
     <title>CalzadoManía</title>
      
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,8 +58,17 @@ crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+<<<<<<< HEAD
+
+
+    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+=======
     <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
+>>>>>>> fa34301b348abba0ab639568d839d633145f10f2
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
 
@@ -106,7 +121,26 @@ crossorigin="anonymous">
   </div>
 
     <div class="tab-content" id="pills-tabContent">
+<<<<<<< HEAD
       <div class="tab-pane fade " id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
+=======
+      <div class="tab-pane fade show active" id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
+
+          <section class="main">
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-lg-7 pt-5 text-center">
+                      <h1 class="text-danger">La moda </h1>     
+                      <h1 class="h0 text-light"> caduca,</h1>  
+                      <h1 class="text-primary"> el estilo</h1>
+                      <h1 class="text-light"> jamás</h1>                 
+                      <!--<button class="btn1 mt-3"></button> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
           <ol class="carousel-indicators">
             @forelse ($promociones as $promocion)
@@ -138,6 +172,7 @@ crossorigin="anonymous">
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+
    
           <div class=" container py-5">
             <div class="row ">
@@ -410,6 +445,40 @@ crossorigin="anonymous">
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
+
+        <table class="table table-dark table-striped t">
+      
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Calzado</th>
+                <th style="visibility: collapse; display:none" scope ="col">ID</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody class="CarritoCompras text-center" id="tabla-calzados">
+              <tr >
+                            
+              </tr>           
+            </tbody>      
+        </table>
+        <br><br>
+        <div class="row mx-4">
+          <div class="col">
+            <h3 class="itemCartotal">Total: 0</h3>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <button class="btn btn-success">Comprar</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">    
+      </div>
+    
+    </div>
+  
         <form id ="SubmitForm">
           <table class="table table-dark table-striped t tabla-calzados" id="mitabla">
                 <thead>
@@ -497,6 +566,7 @@ crossorigin="anonymous">
     
     </div>
      
+
      <footer class="bg-dark p-3 mt-5">
         <p class=" navbar-brand text-center m-0 text-muted ">
           CalzadoManía
@@ -507,12 +577,46 @@ crossorigin="anonymous">
      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
      crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
  <!--     <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
+=======
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
+<<<<<<< HEAD
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
+=======
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+    
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous">
+    </script>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
+
+
+    <script src="js/scripts.js">   
+ 
+    </script>
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
   </body>
 </html>

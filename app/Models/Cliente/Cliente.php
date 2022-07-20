@@ -43,8 +43,10 @@ class Cliente extends Model
         return $descripcion[$this->attributes['estado']-1];
 
     }
+
     public function ventas(){
         return $this->hasMany('App\Models\Venta','id_cliente','id');
      }
+
     
 }

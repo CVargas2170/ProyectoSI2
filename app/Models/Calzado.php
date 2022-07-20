@@ -10,7 +10,7 @@ class Calzado extends Model
   //  use HasFactory;
 
   
- protected $table ="calzado";
+ protected $table ="calzados";
  public $timestamps = false;
   protected $fillable =['marca','precio','stock','estado','detalle','imagen'];
  
@@ -22,8 +22,8 @@ class Calzado extends Model
       return $this->belongsTo('App\Models\Promocion');
   }
 
-public function venta(){
+  public function venta(){
       return $this->belongsToMany('App\Models\Venta','calzado_venta','id_calzado','venta_id');
-}
+  }
 
 }

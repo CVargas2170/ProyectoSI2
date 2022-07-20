@@ -21,10 +21,10 @@
             </div>
            
             <div class="pull-right">
-                <a href="{{route('administrativos.pdf')}}"class="btn btn-sm btn-danger ml-2 float-left">
-                    <i class="fa fa-book"></i>
+                <a href="{{route('administrativos.masivos')}}"class="btn btn-sm btn-info float-right">
+                    <i class="fa fa-plus"></i>
                     &nbsp;
-                    PDF
+                    Enviar SMS masivo
                 </a>
             </div> 
             
@@ -65,6 +65,9 @@
 
                     @foreach($listas as $lista)
                         <tr>
+                            
+                        
+
                             <td>
                                   {{$clientes->where('id',$lista->cliente_id)->first()->nombre}}                            
                             </td>
@@ -77,6 +80,24 @@
                             <td>                              
                                 {{$clientes->where('id',$lista->cliente_id)->first()->email}}                            
                             </td>
+<<<<<<< HEAD
+=======
+                            <td>
+                
+                                
+                                {{$clientes->where('id',$lista->cliente_id)->first()->apellido}}
+                              
+                          </td>
+                          <td class="text-center">
+                              
+                                <a href="{{route('administrativos.viewMessages',$clientes->where('id',$lista->cliente_id)->first()->id)}}">
+                                    <i class="fa fa-sms"></i>
+                                    &nbsp;
+                                    Ver SMS
+                                </a>
+
+                          </td>
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
 
                         </tr>
                     @endforeach

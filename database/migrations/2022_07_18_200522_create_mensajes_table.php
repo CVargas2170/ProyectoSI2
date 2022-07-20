@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('talla', function (Blueprint $table) {
+        Schema::create('mensajes', function (Blueprint $table) {
             $table->id();
-            $table->String('NumeroTalla',5);
+            $table->foreignId('cliente_id');
+            $table->foreignId('administrativo_id');
+            $table->text('mensaje');
+            $table->unsignedSmallInteger('tipo');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('talla');
+        Schema::dropIfExists('mensajes');
     }
 };

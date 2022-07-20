@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bitacoras', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->unsignedSmallInteger('accion');
-            $table->String('tabla');
-           
-            $table->text('datos')->nullable();
+        Schema::create('calzado_tallas', function (Blueprint $table) {
+            $table->foreignId('talla_id')->nullable();
+            $table->foreignId('calzado_id')->nullable();
             
-            $table->timestamps();
+
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bitacoras');
+        Schema::dropIfExists('calzado_talla');
     }
 };

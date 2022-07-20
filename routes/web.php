@@ -5,9 +5,9 @@ use App\Http\Controllers\Cliente1Controller;
 use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
-use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Venta\VentaController;
 use App\Http\Controllers\Bitacora\BitacoraController;
-
+Use App\Models\Bitacora\Bitacora;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +38,8 @@ Route::get('perfil',[Cliente1Controller::class,'perfil'])->name('perfil');
 Route::get('Promociones',[PromocionController::class,'index'])->name('Inicio1');
 
 Route::get('/LoginAdmin', function () {
+
+   
     return view('auth.login');
 });
 
@@ -53,6 +55,14 @@ Route::middleware([
     'verified'
     ])->group(function () {
         Route::get('/dashboard', function () {
+            Bitacora::create([
+                'user_id'=> auth()->user()->id,
+                'tabla' => 'INGRESO AL SISTEMA',
+                'accion' => 4,
+                'objeto'=> '',
+                ''
+        
+            ]);
             return view('dashboard');
         })->name('dashboard');
 });
@@ -71,6 +81,7 @@ Route::get('/mujeres',[Cliente1Controller::class,'ListarCalzadosMujeres'])->name
 Route::get('/detalle/{id}/{carpeta}',[Cliente1Controller::class,'ListarCalzado'])->name('listarcalzado');
 
 Route::get('/home',function(){
+    
     return view('tienda.home');
 });
 

@@ -25,7 +25,7 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
 
     Route::post('/store',[AdministrativoController::class,'store'])->name('store');
 
-    Route::put('/update{administrativo}',[AdministrativoController::class,'update'])->name('update');
+    Route::put('/update/{administrativo}',[AdministrativoController::class,'update'])->name('update');
 
     Route::delete('/delete',[AdministrativoController::class,'destroy'])->name('destroy');
 
@@ -33,6 +33,13 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
    
     Route::post('/lista',[AdministrativoController::class,'lista'])->name('lista');
     Route::get('/clienteAsignados',[AdministrativoController::class,'asignados'])->name('asignados');
+
+
+    Route::get('/mensajes/{cliente}',[AdministrativoController::class,'showMessage'])->name('viewMessages');
+
+    Route::post('/sending',[AdministrativoController::class,'enviar'])->name('enviar');
+
+    Route::get('/mesagges/General',[AdministrativoController::class,'enviarGeneral'])->name('masivos');
 
  
 });

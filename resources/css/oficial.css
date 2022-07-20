@@ -1,0 +1,257 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header, .alert{
+    z-index:100 ;
+}
+.header-altura{
+    height: 80px;
+/*background: linear-gradient(180deg, #345464 0%, #1f2b33 100%); ;*/
+background: rgb(29, 28, 28);
+}
+.navbar-brand{
+    padding-top: 0.5px;
+    font-size: 2rem;
+    font-family: 'Rubik Wet Paint', cursive;
+    color:rgb(213, 235, 16);
+}
+.navbar-brand:hover{
+    color:rgb(235, 236, 227);
+}
+.nav-link{
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: small;
+    margin-left: 5px;
+    color: rgb(235, 232, 232);
+    font-family: 'Radio Canada', sans-serif;
+    text-transform: uppercase;
+}
+.nav-link1{
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size:large;
+    margin-left: 5px;
+    color: rgb(11, 11, 17);
+    font-family: 'Radio Canada', sans-serif;
+    text-transform: uppercase;
+}
+.nav-link:hover{
+    color:rgb(213, 235, 16);
+}
+.btn0{
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border:none;
+    background: rgb(74, 26, 248);
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+}
+
+.btnInicio{
+    height: 40px;
+    padding: 10px 35px 35px 35px;
+    margin-left: 40px;
+    margin-right: -35px;
+    width: 100%;
+    outline: none;
+    border:none;
+    background: rgb(14, 167, 9);
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+}
+
+.main{
+    background: url(../img/img3.jpeg)no-repeat;
+    background-size: cover;
+    height:88vh;
+ background-position: 50% 50%;
+    
+    width: 100%;
+}
+
+.main h1{
+    font-size: 4rem;
+    font-weight: 700;
+}
+.btn1{
+   height: 45px;
+   width: 35%;
+   border:none;
+   outline: none;
+   background-color: rgb(74, 26, 248);
+   color: white;
+   font-weight: 700;
+   border-radius:60px;
+}
+.btn2{
+    height: 45px;
+    width: 35%;
+    border:none;
+    outline: none;
+    background-color: rgb(248, 52, 94);
+    color: white;
+    font-weight: 700;
+    border-radius:60px;
+ }
+.h0{
+    font-family: 'Radio Canada', sans-serif;
+}
+
+.h1{
+    font-weight: 700;
+}
+
+.fuente1{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(43, 33, 187);
+}
+
+.fuente2{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(204, 57, 138);
+}
+
+.fuente3{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(0, 0, 0);
+}
+
+.imagen_fija{
+  
+    width: 100%;
+    height: 250px;
+    display: inline-block;
+}
+
+.card:hover{
+    box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow : -2px -1px 25px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+    transition: 0.5s;
+}
+.b{
+    height: 30px;
+    margin-right: -3cm;
+    width: 140px;
+    border:none;
+    padding: 3px 7px 20px 25px;
+    outline: none;
+    background-color: rgb(243, 36, 181);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius:60px;
+  }
+  .b:hover{
+    color:yellow;
+  }
+
+  .b1{
+    height: 30px;
+    width: 170px;
+    margin-right: -2cm  ;
+ 
+    border:none;
+    padding: 5px 15px 10px 18px;
+    outline: none;
+    background-color: rgb(243, 36, 181);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius:60px;
+  }
+  .b1:hover{
+    color:yellow;
+  }
+
+  .b2{
+    height: 30px;
+    width: 170px;
+    margin-right: -2cm  ;
+ 
+    border:none;
+    padding: 5px 15px 10px 18px;
+    outline: none;
+    background-color: rgb(43, 33, 187);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius:60px;
+  }
+  .b2:hover{
+    color:yellow;
+  }
+  .b3{
+    height: 30px;
+    width: 170px;
+    margin-right: -2cm  ;
+ 
+    border:none;
+    padding: 5px 15px 10px 18px;
+    outline: none;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius:60px;
+  }
+  .b3:hover{
+    color:yellow;
+  }
+
+  .paradestacados{
+    background-color: rgb(205, 235, 125);
+  }
+  .paramujeres{
+    background-color: rgb(223, 108, 247);
+  }
+  .parahombres{
+    background-color: rgb(23, 243, 71);
+  }
+.carrito{
+    min-height: 80vh;
+    max-width: 1000px;
+    margin:0 auto;
+    width: 100%;
+}
+
+.table__productos{
+    display: flex;
+}
+.table__productos > img{
+    width: 9rem;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: 20px;
+}
+.table__cantidad > input{
+    width: 40px;
+    border: none;
+    outline: 0;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+.hide, .remove{
+    display: none;
+}
+.tarjeta__InicioSesion, .tarjeta__Registro{
+    margin-top: 30px;
+}
+.titulo{
+    font-size: 34px;
+    padding: 10px 10px 0 10px;
+    background-color: rgb(240, 240, 186);
+    color:rgb(202, 159, 159);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

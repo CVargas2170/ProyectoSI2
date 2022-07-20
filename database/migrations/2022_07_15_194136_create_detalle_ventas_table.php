@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('calzado', function (Blueprint $table) {
+        Schema::create('detalle_ventas', function (Blueprint $table) {
             $table->id();
-            $table->String('marca',30);
-            $table->float('precio',8,2);
-            $table->String('tipo',10);
-            $table->String('estado',30);
-            $table->String('detalle',600);
-            $table->String('imagen',500);
+            $table->foreignId('calzado_id');
+            $table->foreignId('venta_id');
+            $table->float('precio');
+            $table->Integer('cantidad');
+            $table->float('sub_total')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calzado');
+        Schema::dropIfExists('detalle_ventas');
     }
 };

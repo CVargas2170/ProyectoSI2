@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Promocion extends Model
 {
     use HasFactory;
-    protected $table = 'promocion';
+    protected $table = 'promociones';
 
     protected $fillable = [
         'id',
@@ -18,6 +18,7 @@ class Promocion extends Model
         'descuento',
         'calzado_id',  
         'imagen', 
+        'estado',
     ];
 
     protected $hidden =['id'];

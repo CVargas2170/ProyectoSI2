@@ -14,6 +14,9 @@ use App\Models\Calzado;
 use App\Models\Cliente\Cliente;
 use App\Models\Lista;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Mensaje\Mensaje;
+
+
 class AdministrativoController extends Controller
 {
     /**
@@ -43,7 +46,28 @@ class AdministrativoController extends Controller
         ]);
         return redirect()->route('clientes.index')->with('Exitoso','Cliente añadido');
     }
+
+
+   
+
+    public function showMessage(Cliente $cliente){
+
+        $mensajes = Mensaje::where('cliente_id',$cliente->id)->get();
+        //dd($mensajes);
+        return view('administrativos.verMensajes',compact('mensajes','cliente'));
+
+    }
        
+    public function enviar(Request $request){
+        $inputs = $request->all();
+        //dd($inputs);
+        $mensaje= Mensaje::create($inputs);
+       //return view('administrativos.verMensajes');
+       return redirect()->back();
+      
+    }
+
+
 
     public function asignados(){
         $user_id = Auth::user()->id;
@@ -51,7 +75,8 @@ class AdministrativoController extends Controller
         $admin1 = Administrativo::where('correo',$user_email)->first();
         $listas = Lista::where('administrativo_id',$admin1->id)->get();
         $clientes = Cliente::get();
-       return view('administrativos.asignados',compact('user_id','listas','clientes'));
+        $administrativos = Administrativo::get();
+       return view('administrativos.asignados',compact('listas','clientes','administrativos'));
     }
     /**
      * Show the form for creating a new resource.
@@ -198,6 +223,18 @@ class AdministrativoController extends Controller
         ]);
 
         return redirect()->route('administrativos.index')->with('success','Datos editado correctamente');
+    }
+
+    public function enviarGeneral(){
+        $user_id = Auth::user()->id;
+        $user_email =Auth::user()->email;
+        $admin1 = Administrativo::where('correo',$user_email)->first();
+        $lista = Lista::where('administrativo_id',$admin1->id)->get();
+        $clientes = Cliente::get();
+        ;
+        return view('administrativos.mensajesMasivos',compact('clientes','lista'));
+
+
     }
 
     /**

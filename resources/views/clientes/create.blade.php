@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="card-bod y">
-            <form action="{{route('clientes.store')}}" method="post" id="formulario">
+            <form action="{{route('clientes.store2')}}" method="post" id="formulario">
                 <fieldset>
                     <center><legend>FORMULARIO DE CREACION</legend></center>
                      @csrf 
-                     @method('post')
+                     @method('POST')
                      @include('clientes.partial.form')
                      <div class="pull-right">
                          <button type="submit" class="btn btn-sm btn-success float-right"> 

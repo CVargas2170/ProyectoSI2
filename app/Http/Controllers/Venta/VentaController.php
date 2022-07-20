@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Bitacora;
+namespace App\Http\Controllers\Venta;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Bitacora\Bitacora;
-use App\Models\User;
-
-class BitacoraController extends Controller
+use App\Models\Venta\Venta;
+use App\Models\DetalleVenta\DetalleVenta;
+class VentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class BitacoraController extends Controller
      */
     public function index()
     {
-        $users = User::get();
-        $bitacoras = Bitacora::get();
-        return view('bitacoras.index',compact('users','bitacoras'));
+        $ventas = Venta::where('estado',1)->get();
+        return view('ventas.index',compact('ventas'));
     }
 
     /**
@@ -48,12 +46,10 @@ class BitacoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Bitacora $bitacora,User $user)
+    public function show(Venta $venta)
     {
-        //dd($user);
-        $bitacoras = Bitacora::orderBy('created_at','desc')->where('user_id',$user->id)->get();
-
-        return view('bitacoras.show',compact('bitacoras','user'));
+        $detalles = DetalleVenta::where('venta_id',$venta->id)->get();
+        return view('ventas.show',compact('venta','detalles'));
     }
 
     /**
@@ -62,7 +58,7 @@ class BitacoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bitacora $bitacora)
+    public function edit($id)
     {
         //
     }
@@ -73,8 +69,8 @@ class BitacoraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     ****/
-    public function update(Request $request, Bitacora $bitacora)
+     */
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,7 +81,7 @@ class BitacoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bitacora $bitacora)
+    public function destroy($id)
     {
         //
     }
