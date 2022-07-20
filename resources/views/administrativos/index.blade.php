@@ -21,7 +21,7 @@
             </div>
            
             <div class="pull-right">
-                <a href="{{route('administrativos.pdf')}}"class="btn btn-sm btn-danger ml-2 float-left">
+                <a href="{{route('administrativos.masivos')}}"class="btn btn-sm btn-danger ml-2 float-left">
                     <i class="fa fa-book"></i>
                     &nbsp;
                     PDF

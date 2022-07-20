@@ -31,11 +31,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
+<<<<<<< HEAD
   
     <link rel="stylesheet" href="{{
 
 asset('css/oficial.css')}}">
+=======
+
+    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
  
+
+    <link rel="stylesheet" href="{{asset('css/s1.css')}}">
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="css/oficial.css">
+
   </head>
 
   <body>
@@ -420,10 +430,12 @@ asset('css/oficial.css')}}">
                   <div class="titulo text-center ">Regístrate</div><br>
                   <h6 class="card-title text-center">Complete los campos</h6>
                   <form action ="{{route('clientes.store2')}}" method="POST" id="form" >
+
+                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
                     @csrf 
                     @method('POST')
                     <div class="input-group ">
-                      <span class="input-group-text  col-sm-2" > Nombres</span>
+                      <span class="input-group-text  col-sm-2" >Nombres</span>
                       <input type="text" aria-label="usuario" name="nombre" class="form-control">
                     </div>
                     <div class="input-group">

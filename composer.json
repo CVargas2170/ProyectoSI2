@@ -42,8 +42,12 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
+<<<<<<< HEAD
             "@php artisan vendor:publish --tag=laravel-
 assets --ansi --force"
+=======
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

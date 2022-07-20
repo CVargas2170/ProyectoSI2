@@ -4,12 +4,17 @@
 
             {{-- Setup the file location  --}}
             @php
+<<<<<<< HEAD
                 if (! empty($file['secure_
 
 asset'])) {
                     $file['location'] = 
 
 asset($file['location']);
+=======
+                if (! empty($file['secure_asset'])) {
+                    $file['location'] = asset($file['location']);
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
                 }
             @endphp
 

@@ -17,9 +17,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:wght@500&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
    
    
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{
 
 asset('css/style.css')}}">
+=======
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Tienda de Zapatos </title>
   </head>

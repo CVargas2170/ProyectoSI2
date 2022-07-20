@@ -22,7 +22,7 @@ class DetalleVenta extends Model
     public function venta(){
 
         
-        return $this->hasOne(Ventas::class,'id','venta_id');
+        return $this->hasOne(Venta::class,'id','venta_id');
         
 
     }

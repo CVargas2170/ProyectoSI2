@@ -16,16 +16,24 @@
     @endif>
 
     {{-- Small brand logo --}}
+<<<<<<< HEAD
     <img src="{{ 
 
 asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
+=======
+    <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
          alt="{{ config('adminlte.logo_img_alt', 'AdminLTE') }}"
          class="{{ config('adminlte.logo_img_class', 'brand-image-xl') }} logo-xs">
 
     {{-- Large brand logo --}}
+<<<<<<< HEAD
     <img src="{{ 
 
 asset(config('adminlte.logo_img_xl')) }}"
+=======
+    <img src="{{ asset(config('adminlte.logo_img_xl')) }}"
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
          alt="{{ config('adminlte.logo_img_alt', 'AdminLTE') }}"
          class="{{ config('adminlte.logo_img_xl_class', 'brand-image-xs') }} logo-xl">
 

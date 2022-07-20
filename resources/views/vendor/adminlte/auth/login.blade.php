@@ -1,9 +1,13 @@
 @extends('adminlte::auth.auth-page', ['auth_type' => 'login'])
 
 @section('adminlte_css_pre')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{
 
 asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+=======
+    <link rel="stylesheet" href="{{asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+>>>>>>> 5ffede569412badfc308fb417679ed4f2487ae3c
 @stop
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
