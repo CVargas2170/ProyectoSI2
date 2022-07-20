@@ -8,6 +8,7 @@ use App\Models\Calzado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Promocion;
+use App\Models\Bitacora\Bitacora;
 
 class Cliente1Controller extends Controller
 {
@@ -27,13 +28,13 @@ class Cliente1Controller extends Controller
 
         //calzados destacados
       //  $promociones =Promocion::all();
-        $promociones = DB::table('promocion')->get();
-        $calzados = DB::table('calzado')
+        $promociones = DB::table('promociones')->get();
+        $calzados = DB::table('calzados')
                     //->groupBy('marca','precio','stock','estado','detalle','imagen')
                    ->where('estado','=','Promocion')->get();
 
     //calzados para mujeres y niñas destacados
-        $calzados1 = DB::table('calzado')
+        $calzados1 = DB::table('calzados')
                   
                   //  ->where('estado','=','Destacado'  )->get();
                       ->where([
@@ -42,16 +43,16 @@ class Cliente1Controller extends Controller
                       ])->get();
 
     //calzados para hombres y niños destacados
-        $calzados2 = DB::table('calzado') 
+        $calzados2 = DB::table('calzados') 
                   //  ->where('tipo','=','hombre')->get();
                   ->where([
                     ['estado','=','Destacado'],
                     ['tipo', '=','hombre'],
                   ])->get();
-        $hombres = DB::table('calzado')->where('tipo','=','hombre')->get();   
-        $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
-        $mujeres = DB::table('calzado')->where('tipo','=','mujer')->get();   
-        $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get();            
+        $hombres = DB::table('calzados')->where('tipo','=','hombre')->get();   
+        $niños =     DB::table('calzados') ->where('tipo','=','kidman')->get();
+        $mujeres = DB::table('calzados')->where('tipo','=','mujer')->get();   
+        $niñas =     DB::table('calzados') ->where('tipo','=','kidwoman')->get();            
       return view('tienda.principal',compact('calzados','calzados1','calzados2','hombres','niños','mujeres','niñas','promociones'));
     //  return view('tienda.home1',compact('calzados','calzados1','calzados2'));
 
@@ -60,8 +61,8 @@ class Cliente1Controller extends Controller
 
 
     public function ListarCalzadosHombres(){
-        $calzados2 = DB::table('calzado')->where('tipo','=','hombre')->get();   
-        $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+        $calzados2 = DB::table('calzados')->where('tipo','=','hombre')->get();   
+        $niños =     DB::table('calzados') ->where('tipo','=','kidman')->get();
    
 
         return view('tienda.hombres',compact('calzados2','niños'));
@@ -69,8 +70,8 @@ class Cliente1Controller extends Controller
    
 
     public function ListarCalzadosMujeres(){
-      $calzados1 = DB::table('calzado')->where('tipo','=','mujer')->get();   
-      $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get();
+      $calzados1 = DB::table('calzados')->where('tipo','=','mujer')->get();   
+      $niñas =     DB::table('calzados') ->where('tipo','=','kidwoman')->get();
  
 
       return view('tienda.mujeres',compact('calzados1','niñas'));
@@ -97,6 +98,7 @@ class Cliente1Controller extends Controller
 
 
     public function p1(){
+     
       return view('tienda.principal');
     }
     public function index()

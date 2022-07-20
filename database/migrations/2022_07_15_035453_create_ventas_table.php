@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bitacoras', function (Blueprint $table) {
+        Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->unsignedSmallInteger('accion');
-            $table->String('tabla');
-           
-            $table->text('datos')->nullable();
-            
+            $table->float('monto_total',8,2);
+            $table->foreignId('cliente_id');
+            $table->unsignedSmallInteger('estado')->default(1);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bitacoras');
+        Schema::dropIfExists('ventas');
     }
 };

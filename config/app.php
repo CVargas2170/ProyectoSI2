@@ -200,7 +200,7 @@ asset_URL'),
         App\Providers\JetstreamServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-      //  Barryvdh\DomPDF\ServiceProvider::class,
+       // Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*

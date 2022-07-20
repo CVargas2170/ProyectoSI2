@@ -18,6 +18,8 @@ class Bitacora extends Model
         'fecha_creacion',
         'tabla',
         'datos',
+        
+        
 
     ];
 

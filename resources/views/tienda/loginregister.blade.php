@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{
+
 asset('css/style.css')}}">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Inicio de Sesión </title>

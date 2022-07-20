@@ -277,7 +277,7 @@ return [
         [
             'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
-           // 'can' => 'Ver-compras',
+            'can' => 'creaRoles',
             'submenu' => [
                 [
                     'text' => 'Roles',
@@ -316,17 +316,17 @@ return [
             ],
         ],
 
-   /*     [
+       [
             'text' => 'Promociones',
-           'route'  => 'Inicio1',
+           'route'  => 'promociones.index',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
-        ],*/
+        ],
 
         [
             'text' => 'Ventas',
-           'route'  => 'ventas',
+           'route'  => 'ventas.index',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
@@ -336,7 +336,7 @@ return [
            'route'  => 'bitacoras.index',
 
             'icon' => 'fas fa-fire-alt',
-            //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
+            'can' => 'VerBitacora', // ASIGNACION DEL PERMISO
         ],
 
         ['header' => 'Negocio'],
@@ -398,18 +398,21 @@ return [
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
                     '
+
 asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
@@ -421,12 +424,14 @@ asset' => false,
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
                     '
+
 asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
@@ -438,6 +443,7 @@ asset' => false,
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
@@ -449,6 +455,7 @@ asset' => false,
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
@@ -460,12 +467,14 @@ asset' => false,
                 [
                     'type' => 'css',
                     '
+
 asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
                 ],
                 [
                     'type' => 'js',
                     '
+
 asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],

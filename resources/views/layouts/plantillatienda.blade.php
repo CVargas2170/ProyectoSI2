@@ -18,6 +18,7 @@
    
    
     <link rel="stylesheet" href="{{
+
 asset('css/style.css')}}">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Tienda de Zapatos </title>

@@ -9,21 +9,21 @@
         <div class="card-custom">
             <div class="card-header bg-secondary">
                 <div class="card-title">
-                    Editar datos de {{$administrativo->nombre}}               
+                    Editar datos de {{$promocion->descripcion}}               
                 </div>
                 <div class="pull-rigth">
-                    <a href="{{route('administrativos.index')}}" class="btn btn-sm btn-warning float-right">
+                    <a href="{{route('promociones.index')}}" class="btn btn-sm btn-warning float-right">
                         <i class="fa fa-reply"></i>
                     </a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{route('administrativos.update',$administrativo)}}" method="post" id="formulario">
+                <form action="{{route('promociones.update',$promocion)}}" method="post" id="formulario">
                     <fieldset>
                         <center><legend>Formulario de Edicion</legend></center>
                         @csrf
                         @method('PUT')
-                        @include('administrativos.partial.form')
+                        @include('promociones.partial.form')
                         <div class="pull-right mt-3">
                             <button class="btn btn-sm btn-success float-right">
                                 <i class="fa fa-save"></i>
@@ -51,5 +51,19 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> 
+    
+    function llenarFoto2(){
+
+var datos = $('#calzado_id').val();
+var vector= datos.split('_');
+document
+         .getElementById("picture")
+         .setAttribute("src","/img/"+vector[1]);
+
+
+}
+       
+    
+    </script>
 @stop
