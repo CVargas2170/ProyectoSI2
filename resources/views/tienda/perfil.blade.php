@@ -61,9 +61,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+<<<<<<< HEAD
 
 
     <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+=======
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
+>>>>>>> fa34301b348abba0ab639568d839d633145f10f2
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
 

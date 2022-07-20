@@ -15,22 +15,22 @@
 <div class="row">
     <div class="col-md-4">
         <label for="nombre">
-            Nombre:
+            marca:
         </label>
-        <input type="text" name="nombre" id="nombre" value="{{isset($administrativo) ? $administrativo->nombre :''}}" class="form form-control" required>
+        <input type="text" name="marca" id="marca" value="{{isset($calzado) ? $calzado->marca :''}}" class="form form-control" required>
     </div>
     <div class="col-md-4">
         <label for="apellidos">
-            Apellidos:
+            precio:
         </label>
-        <input type="text" name="apellidos" id="apellidos" value="{{isset($administrativo->apellidos)? $administrativo->apellidos : ''}}" class="form form-control"  required>
+        <input type="number" name="precio" id="precio" value="{{isset($calzado->precio)? $administrativo->apellidos : ''}}" class="form form-control"  required>
     </div>
 
     <div class="col-md-4">
         <label for="ci">
             Ci:
         </label>
-        <input type="text" name="ci" id="ci" value="{{isset($administrativo) ? $administrativo->ci : ''}}" class="form form-control"  required>
+        <input type="text" name="ci" id="ci" value="{{isset($calzado) ? $administrativo->ci : ''}}" class="form form-control"  required>
     </div>
     <div class="col-md-4">
         <label for="direccion">
@@ -77,8 +77,6 @@
         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="{{isset($administrativo)? $administrativo->fecha_nacimiento :'' }}" class="form form-control">
     </div>
     
-   
-
     @isset($administrativo)
         <div class="col-md-4">
             <label for="estado">

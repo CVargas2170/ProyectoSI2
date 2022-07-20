@@ -84,7 +84,8 @@ Route::get('/home',function(){
     
     return view('tienda.home');
 });
-Route::post('/store',[ClienteController::class,'store2'])->name('store');
+
+Route::post('/store',[ClienteController::class,'store2'])->name('store2');
 Route::get('/base' ,function(){return view('tienda.login.conexion');});
 Route::post('/Sesión-Iniciada',[ClienteController::class,'loginCliente1'])->name('loguear');
 Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');

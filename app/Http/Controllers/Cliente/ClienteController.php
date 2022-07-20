@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use App\Models\Administrativo\Administrativo;
 use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
 use App\Models\Promocion;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use App\Models\Lista;
 class ClienteController extends Controller
 {
     /**
@@ -17,10 +19,19 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $clientes = Cliente::get();
-        return view('clientes.index',compact('clientes'));
+    {  //$clientes = Cliente::get();
+        /*$clientes = DB::table('clientes')
+                    //->groupBy('marca','precio','stock','estado','detalle','imagen')
+                   ->where('tipo_cliente','=',1)->get();*/
+        $clientes =Cliente::query()
+                          //  ->with('estado_color')
+                            ->where('tipo_cliente',1)
+                            ->get();
+        $administrativos = Administrativo::get();
+        return view('clientes.index',compact('clientes','administrativos'));
     }
 
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -91,6 +102,7 @@ class ClienteController extends Controller
         $cliente = Cliente::create($inputs);
         $cliente->estado =1;
         $cliente->tipo =2;
+        $cliente->tipocliente = 1; //default crea con 1     1->nuevo cliente
         $email = $inputs['email'];
         $rol_id=2;
         $contraseña = $inputs['password'];
@@ -130,13 +142,13 @@ class ClienteController extends Controller
           ])->get(); 
           if(count($consulta)>=1 ){  
             $promociones = Promocion::all();
-            $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
-            $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
-            $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
-            $hombres =   DB::table('calzado')->where('tipo','=','hombre')->get();   
-            $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
-            $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
-            $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
+            $calzados =  DB::table('calzados')->where('estado','=','Promocion')->get();
+            $calzados1 = DB::table('calzados')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
+            $calzados2 = DB::table('calzados') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
+            $hombres =   DB::table('calzados')->where('tipo','=','hombre')->get();   
+            $niños =     DB::table('calzados') ->where('tipo','=','kidman')->get();
+            $mujeres =   DB::table('calzados')->where('tipo','=','mujer')->get();   
+            $niñas =     DB::table('calzados') ->where('tipo','=','kidwoman')->get(); 
 
             $nombre = DB::table('users')->where('email','=', $email)->value('name');
             $id =DB::table('users')->where('email','=', $email)->value('id');

@@ -42,9 +42,7 @@
                         <th>
                             Telefono
                         </th>
-                        <th>
-                            Estado
-                        </th>
+                       
                         <th colspan="3" class="text-center">
                             Acciones
                         </th>
@@ -67,10 +65,35 @@
                             <td>
                                 {{$cliente->telefono}}
                             </td>
-                            <td class="p-1 mt-3 ml-3 {{$cliente->estado_color}}">
-                                {{$cliente->estado_descripcion}}
-                            </td>
                             <td>
+                         
+                                <form action="{{route('administrativos.lista')}}" method="post">
+                                   
+                                    @csrf 
+                                    <div class="row">
+                                        <div class="col form form-control">
+                                            <select name="administrativo" id="administrativo" class="">
+                                                <option value="">Añadir a:</option>
+                                                @foreach ($administrativos as $administrativo)
+                                                <option value="{{$administrativo->nombre}}">{{$administrativo->nombre}}</option>
+                                                @endforeach
+                                              </select>
+                                        </div>
+                                        <div class="col">
+                                            <input id="iduser" name="iduser" type="hidden" value="{{auth()->user()->id}}">
+                                            <input id="idcliente" name="idcliente" type="hidden" value="{{$cliente->id}}">
+                                            <button class="btn btn-sm btn-success float-right p-1" >
+                                                <i class="fa fa-edit"></i>
+                                                &nbsp;
+                                                Añadir
+                                            </button>
+                                        </div>
+                                    </div>    
+                                </form>
+                            </td>
+                               
+                               
+                                  <td>     
                                 <a href="{{route('clientes.edit',$cliente)}}" class="btn btn-sm btn-warning">
                                     <i class="fa fa-edit"></i>
                                     &nbsp;
@@ -85,7 +108,7 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="{{route('clientes.destroy')}}" method="post">
+                             <!--   <form action="{{route('clientes.destroy')}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="cliente_id" id="cliente_id" value="{{$cliente->id}}">
@@ -94,7 +117,7 @@
                                         &nbsp;
                                         Eliminar
                                     </button>
-                                </form>
+                                </form>-->
                             </td>
                         </tr>
 
