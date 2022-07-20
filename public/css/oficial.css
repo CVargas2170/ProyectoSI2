@@ -255,6 +255,18 @@ background: rgb(29, 28, 28);
     color:rgb(202, 159, 159);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/*Diseño  perfil*/
+
+.menu__vertical{
+
+    padding: 10px 10px 0 10px;
+    background-color: rgb(236, 236, 217);
+    color:rgb(29, 25, 25);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/**/
 .boton_bienvenida{
     margin-left: 20cm;
 }
@@ -264,4 +276,29 @@ background: rgb(29, 28, 28);
     height:80vh;
     background-position: 50% 50%;
     width: 100%;
+}
+
+.mensaje_recibido{
+    margin-left: 110px;
+    background-color: rgb(243, 220, 115);
+    
+   border-color: rgb(13, 194, 125);
+    border-radius: 20px;
+}
+.mensaje_recibido1{
+    margin-left: 10px;
+    background-color: rgb(112, 217, 243);
+    
+   border-color: rgb(90, 151, 231);
+    border-radius: 20px;
+}
+
+.tarjeta_chat{
+    height: 300px;
+	width: 380px;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+    margin-right: 10px;
+    margin-left: 12px;
 }

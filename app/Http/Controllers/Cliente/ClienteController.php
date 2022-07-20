@@ -149,11 +149,11 @@ class ClienteController extends Controller
             $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
             $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
             $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
-
+            $cliente=   DB::table('clientes')->where('email','=', $email)->first();
             $nombre = DB::table('users')->where('email','=', $email)->value('name');
             $id =DB::table('users')->where('email','=', $email)->value('id');
             return view('tienda.perfil',compact('calzados','calzados1','calzados2',
-                        'hombres','niños','mujeres','niñas','nombre','id','promociones'));
+                        'hombres','niños','mujeres','niñas','nombre','id','promociones','cliente'));
      //   return view('tienda.prueba',compact('nombre','id'));
         }else{
             return "Datos incorrectos";

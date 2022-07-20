@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Clientes-Asignados')
 
 @section('content_header')
     <h1>Clientes Asignados</h1>
@@ -41,13 +41,13 @@
                      <th>
                            Apellido
                        </th>
-                    <!--     <th>
-                           Ci
+                     <th>
+                           Celular
                        </th>
                        <th>
                            Email
                        </th>
-                       <th>
+                       <!--    <th>
                            Direccion
                        </th>
                        <th>
@@ -66,18 +66,17 @@
                     @foreach($listas as $lista)
                         <tr>
                             <td>
-                
-                                
-                                  {{$clientes->where('id',$lista->cliente_id)->first()->nombre}}
-                                
+                                  {{$clientes->where('id',$lista->cliente_id)->first()->nombre}}                            
                             </td>
-                            <td>
-                
-                                
-                                {{$clientes->where('id',$lista->cliente_id)->first()->nombre}}
-                              
-                          </td>
-                           
+                            <td>                              
+                                {{$clientes->where('id',$lista->cliente_id)->first()->apellido}}                            
+                            </td>
+                            <td>                              
+                                {{$clientes->where('id',$lista->cliente_id)->first()->telefono}}                            
+                            </td>
+                            <td>                              
+                                {{$clientes->where('id',$lista->cliente_id)->first()->email}}                            
+                            </td>
 
                         </tr>
                     @endforeach
