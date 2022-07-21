@@ -2,7 +2,7 @@
 
 @section('title', 'Mensajes')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="{{asset('css/CRM.css')}}">
+<link rel="stylesheet" href="{{secure_asset('css/CRM.css')}}">
 @livewireStyles
 @section('content_header')
     <h1>Mensajes {{$cliente->nombre}}</h1>
