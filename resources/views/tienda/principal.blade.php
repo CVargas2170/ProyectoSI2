@@ -35,8 +35,8 @@
    
  
 
-    <link rel="stylesheet" href="{{asset('css/s1.css')}}">
-    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/s1.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css">
 
   </head>
