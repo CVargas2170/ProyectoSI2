@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Mensaje;
 use App\Models\Lista;
 use App\Models\Administrativo\Administrativo;
-use App\Models\Mensaje\Mensaje as MensajeMensaje;
+
 use App\Models\User;
 class ChatList extends Component
 {

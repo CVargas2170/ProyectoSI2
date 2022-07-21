@@ -50,18 +50,44 @@ class AdministrativoController extends Controller
 
    
 
-    public function showMessage(Cliente $cliente){
+   /* public function showMessage(Cliente $cliente){
         $id = Auth::user()->id;
         $mensajes = Mensaje::where('cliente_id',$cliente->id)->get();
         //dd($mensajes);
         return view('administrativos.verMensajes',compact('mensajes','cliente','id'));
 
+    }*/
+
+    public function showMessage( Cliente $cliente){
+        $id = Auth::user()->id;
+        $mensajes = Mensaje::where('cliente_id',$cliente->id)->get();
+
+        //dd($mensajes);
+        return view('administrativos.verMensajes',compact('mensajes','cliente','id'));
+
     }
-       
+    public function showMessage1(){
+        $id = Auth::user()->id;
+        $email_admin = Auth::user()->email;
+        $id_admin =Administrativo::where('correo',$email_admin);
+        $cliente = Cliente::find(8);
+        $mensajes = Mensaje::where('cliente_id',8)->get();
+        //dd($mensajes);
+        return view('administrativos.verMensajes',compact('mensajes','cliente',' $id_admin'));
+
+    }
     public function enviar(Request $request){
         $inputs = $request->all();
         //dd($inputs);
-        $mensaje= Mensaje::create($inputs);
+     //   $mensaje= Mensaje::create($inputs);
+        $admin =Administrativo::where('correo',$request['administrativo_id'])->first();
+        Mensaje::create([
+            'descripcion' => $request['descripcion'],
+            'administrativo_id' => $admin->id,
+            'cliente_id' =>$request['cliente_id'],
+            'tipo' => 1,
+            
+          ]);
        //return view('administrativos.verMensajes');
        return redirect()->back();
       
@@ -77,7 +103,14 @@ class AdministrativoController extends Controller
         $admin2= $admin1->id;
         $clientes = Cliente::get();
         $administrativos = Administrativo::get();
-       return view('administrativos.asignados',compact('listas','clientes','administrativos','admin2'));
+        if($listas ==null){
+            $mensaje="Usted no tiene clientes asignados";
+            return view('administrativos.asignados',compact('mensaje','clientes','administrativos','admin2'));
+        }else{
+            return view('administrativos.asignados',compact('listas','clientes','administrativos','admin2'));
+        }
+
+     
     }
     /**
      * Show the form for creating a new resource.

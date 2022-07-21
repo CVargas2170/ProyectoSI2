@@ -1,0 +1,31 @@
+
+.mensaje_recibido{
+    margin-left: 100px;
+    background-color: rgb(243, 220, 115);
+    
+   border-color: rgb(13, 194, 125);
+    border-radius: 20px;
+}
+.mensaje_recibido1{
+    margin-left: 20px;
+    background-color: rgb(112, 217, 243);
+    
+   border-color: rgb(90, 151, 231);
+    border-radius: 20px;
+}
+
+.tarjeta_chat{
+    height: 300px;
+	width: 680px;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+    margin-right: 10px;
+    margin-left: 150px;
+}
+.texto_ingrese_mensaje{
+    margin-left: 150px;
+}
+.fuente_homero_simpson{
+    font-family:  "Trebuchet MS", Verdana, sans-serif;
+}

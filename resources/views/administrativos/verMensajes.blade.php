@@ -1,14 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'CRM')
-
+@section('title', 'Mensajes')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{asset('css/CRM.css')}}">
+@livewireStyles
 @section('content_header')
     <h1>Mensajes {{$cliente->nombre}}</h1>
-    
 @stop
 
 @section('content')
-    
+@livewireScripts
 <div class="card-custom">
     <div class="card-header">
         <div class="pull-right">
@@ -19,56 +20,20 @@
     </div>
 </div>
 
-    <div class="card-custom border">
-
-        <div class="card-header">
-            <textarea name="mensajesArea" id="mensajesArea" cols="150" rows="10" class="ml-5 bg-cyan" readonly>
+     <div class="container">
+        <div class="col">
+            <h4 class="card-title">Chat</h4><br>
+            <div class="card" >
+              <div class="card-body">      
+                @livewire('chat1-list', ['id' => $cliente])
+                @livewire('chat1-form', ['id' => $cliente->id])
                 
-                @foreach($mensajes as $men)
-                
-                    @if($men->tipo=='1')
-                       {{$men->descrpcion}}
-                        
-                    @else
-                   {{'                                                              '.$men->descrpcion}} 
-                    @endif
-                @endforeach
-            </textarea>
-
-            <form action="{{route('administrativos.enviar')}}" method="POST" id="form_send">
-                @csrf
-                @method('POST')
-                <input type="hidden" name="tipo" id="tipo" value="1">
-                <input type="hidden" name="administrativo_id" id="administrativo_id" value="{{Auth::user()->id}}">
-                <input type="hidden" name="cliente_id" id="cliente_id" value="{{$cliente->id}}">
-                <div class="row">
-
-                <div class="col-md-8 m-auto">
-                    <input type="text" id="mensaje" name="mensaje" class="form form-control" placeholder="Mensaje">
-                </div>
-                
-                </div>
-                <div class="row mt-5">
-                    <div class="m-auto">
-                        <div class="pull-right">
-                            <button type="submit" name="btnEnviar" id="btnEnviar" class="btn btn-sm btn-info">
-                                <i class="fa fa-send"></i>
-                                &nbsp;
-                                Enviar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-
-        
-        
-    </div>
-
-
-
+               
+              </div>
+            </div>
+          </div>
+     </div>
+     <br>
 @stop
 
 @section('css')
@@ -86,15 +51,22 @@
 
 @section('js')
     <script> 
-        function enviar(){
-            //var sms = $('#mensaje').val();
-            //if(sms !=""){
-              //  $("#form_send").submit();
-            //}
-            location.reload ()
-
-        }
-    
-    
+   /*        $(document).ready(function(){
+            setInterval(
+                function(){               
+                      $('#mensajesArea').load('mensaje.blade.php');
+                },2000
+            );
+        });
+      /*  $(document).ready(function(){
+            setInterval(
+                function(){
+                
+                      $('#mensajesArea').load('{{ route('administrativos.viewMessages1') }}')
+                },2000
+            );
+        });
+     
+    */
     </script>
 @stop

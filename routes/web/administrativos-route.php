@@ -41,7 +41,7 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
 
     Route::get('/mesagges/General',[AdministrativoController::class,'enviarGeneral'])->name('masivos');
 
- 
+    Route::get('/mensajes',[AdministrativoController::class,'showMessage1'])->name('viewMessages1');
 });
 
 
