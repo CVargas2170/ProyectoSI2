@@ -424,7 +424,6 @@
                   <h6 class="card-title text-center">Complete los campos</h6>
                   <form action ="{{route('clientes.store2')}}" method="POST" id="form" >
 
-                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
                     @csrf 
                     @method('POST')
                     <div class="input-group ">
