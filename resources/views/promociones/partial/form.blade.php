@@ -6,7 +6,7 @@
         <img
             class="imagen"
             id="picture"
-            src="{{isset($promocion) ? '/img/promocion'.'/'.$promocion->imagen:'https://www.bootdey.com/app/webroot/img/hero-graphic.png'}}"
+            src="{{isset($promocion) ? '/img/promocion'.'/'.$zapatos->imagen:'https://www.bootdey.com/app/webroot/img/hero-graphic.png'}}"
             alt=""
             width="250px"
             value="{{old('picture')}}"
@@ -65,7 +65,7 @@
             <select name="calzado_id" id="calzado_id" class="form form-control" onchange="llenarFoto2(this);">
                 <option value="">-</option>
                 @foreach($zapatos as $zapato)
-                    <option value="{{$zapato->id}}_{{$zapato->imagen}}">{{$zapato->marca}}</option>
+                    <option value="{{$zapato->id}}_{{$zapato->imagen}}">{{$zapato->marca}} {{$zapato->detalle}}</option>
 
                 @endforeach
 
