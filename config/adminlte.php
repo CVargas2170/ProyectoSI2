@@ -354,17 +354,16 @@ return [
         [
             'text'       => 'En espera',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'  => 'administrativos.espera'
         ],
         [
             'text'       => 'En proceso',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'route'  => 'administrativos.proceso'
         ],
         [
             'text'       => 'Concluido',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'route'  => 'administrativos.terminado'
         ],
     ],
 
@@ -408,17 +407,17 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
@@ -428,12 +427,12 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
@@ -443,7 +442,7 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
@@ -453,7 +452,7 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],
@@ -463,12 +462,12 @@ return [
             'files' => [
                 [
                     'type' => 'css',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
                 ],
                 [
                     'type' => 'js',
-                    'secure_asset' => false,
+                    'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],

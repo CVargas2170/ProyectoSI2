@@ -3,7 +3,7 @@
 @section('title', 'Clientes-Asignados')
 
 @section('content_header')
-    <h1>Clientes Asignados</h1>
+    <h1>Clientes en proceso</h1>
 @stop
 
 @section('content')
@@ -42,17 +42,9 @@
                            Nombre
                        </th>
                      <th>
-                           Apellido
+                           Ultimo mensaje
                        </th>
-                       <th>
-                        Tipo Cliente
-                    </th>
-                     <th>
-                           Celular
-                       </th>
-                       <th>
-                           Email
-                       </th>
+                       
                        <!--    <th>
                            Direccion
                        </th>
@@ -67,61 +59,33 @@
                        </th>
                     </tr>
                 </thead>
-                @if (!isset($listas))
+                @if (!isset($clientes))
                      <div class="card">
                        <h3> {{$mensaje }}</h3>
                      </div>
                 @else
                 <tbody>
 
-                    @foreach($listas as $lista)
+                    @foreach($clientes as $cliente)
                         <tr>
                             
                         
 
                             <td>
-                                  {{$clientes->where('id',$lista->cliente_id)->first()->nombre}}                            
+                                  {{$cliente->nombre}} {{$cliente->apellido}}                        
                             </td>
                             <td>                              
-                                {{$clientes->where('id',$lista->cliente_id)->first()->apellido}}                            
-                            </td>
-                            <td>
-                                {{($ventas->where('cliente_id',$lista->cliente_id))->count()>=1 ? 'Cliente Fiel' :'Cliente normal'}}
-
-                            </td>
-                            <td>                              
-                                {{$clientes->where('id',$lista->cliente_id)->first()->telefono}}                            
-                            </td>
-                            <td>                              
-                                {{$clientes->where('id',$lista->cliente_id)->first()->email}}                            
+                                {{"Hola"}}                            
                             </td>
 
-                          
-                          <td >
-                              
-                                <a href="{{route('administrativos.viewMessages',$clientes->where('id',$lista->cliente_id)->first()->id)}}">
-                                    <i class="fa fa-sms"></i>
-                                    &nbsp;
-                                    Ver SMS 
-                                </a>
-
-                          </td>
                           <td>
-                            <a href="{{route('administrativos.pasarAespera',$clientes->where('id',$lista->cliente_id)->first()->id)}}" class="btn btn-sm btn-danger p-1">
+                        
+                      
+                            <a href="{{route('administrativos.pasarAterminado',$cliente->id)}}" class="btn btn-sm btn-info p-1">
                                 <i class="fa fa-edit"></i>
                                 &nbsp;
-                                Espera
-                            </a>
-                            <a href="{{route('administrativos.pasarAproceso',$clientes->where('id',$lista->cliente_id)->first()->id)}}" class="btn btn-sm btn-warning p-1">
-                                <i class="fa fa-edit"></i>
-                                &nbsp;
-                                Proceso
-                            </a>
-                            <a href="{{route('administrativos.pasarAterminado',$clientes->where('id',$lista->cliente_id)->first()->id)}}" class="btn btn-sm btn-info p-1">
-                                <i class="fa fa-edit"></i>
-                                &nbsp;
-                                Concluido
-                            </a>
+                                Terminado
+                         
                         </td>
 
 

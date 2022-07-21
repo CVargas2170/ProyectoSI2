@@ -302,3 +302,27 @@ background: rgb(29, 28, 28);
     margin-right: 10px;
     margin-left: 12px;
 }
+
+.tarjeta_notificacion{
+    height: 420px;
+	width: 480px;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	
+    margin-right: 15px;
+    margin-left: 12px;
+    
+}
+.notificacion{
+    width: 450px;
+    height: auto;
+    border-radius: 15px;
+    background-color: rgb(49, 228, 138);
+    margin-left: 15px;
+    margin-top: 15px;
+    
+  
+}
+.letra_notifi{
+    font-family: 'Rubik Wet Paint', cursive;
+}

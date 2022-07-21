@@ -9,13 +9,14 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Models\Bitacora\Bitacora;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Venta\Venta;
 use Illuminate\Support\Facades\DB;
 use App\Models\Calzado;
 use App\Models\Cliente\Cliente;
 use App\Models\Lista;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Mensaje;
-
+use App\Models\Notificacion;
 
 class AdministrativoController extends Controller
 {
@@ -98,17 +99,19 @@ class AdministrativoController extends Controller
     public function asignados(){
         $user_id = Auth::user()->id;
         $user_email =Auth::user()->email;
-        $admin1 = Administrativo::where('correo',$user_email)->first();
-        $listas = Lista::where('administrativo_id',$admin1->id)->get();
-        $admin2= $admin1->id;
         $clientes = Cliente::get();
         $administrativos = Administrativo::get();
-        if($listas ==null){
+        $ventas = Venta::get();
+        $administrativos = Administrativo::get();
+        $admin1 = Administrativo::where('correo',$user_email)->first();
+        if($admin1 ==null){
             $mensaje="Usted no tiene clientes asignados";
-            return view('administrativos.asignados',compact('mensaje','clientes','administrativos','admin2'));
-        }else{
-            return view('administrativos.asignados',compact('listas','clientes','administrativos','admin2'));
+            return view('administrativos.asignados',compact('mensaje','clientes','administrativos','ventas'));
         }
+        $listas = Lista::where('administrativo_id',$admin1->id)->get();
+        $admin2= $admin1->id;
+            return view('administrativos.asignados',compact('listas','clientes','administrativos','admin2','ventas'));
+        
 
      
     }
@@ -119,7 +122,7 @@ class AdministrativoController extends Controller
      */
 
      public function calzado(){
-        $calzados = DB::table('calzado')->get();
+        $calzados = DB::table('calzados')->get();
         return view('calzados.index',compact('calzados'));
      }
     public function create()
@@ -182,6 +185,7 @@ class AdministrativoController extends Controller
          $inputs['nombre'] . $inputs['correo'] . $inputs['ci'] .'con rol administrativo', 
 
       ]);
+
 
         $this->crearUsuario($nombre,$email,$ci,$rol_id,$persona_id);
         return redirect()->route('administrativos.index')->with('success','Administrativo Creado con Exito');
@@ -249,7 +253,13 @@ class AdministrativoController extends Controller
         $ci = $inputs['ci'];
         $name= $inputs['nombre'];
         $usuario = User::where('tipo_id',1)->where('persona_id',$administrativo->id)->first();
-
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_EDITO,
+            'tabla' => 'administrativos',
+            'datos' => 'Edito datos de la tabla Administtrativo',
+    
+          ]);
         $usuario->update([
             'email' => $email,
             'name' => $name,
@@ -260,15 +270,54 @@ class AdministrativoController extends Controller
     }
 
     public function enviarGeneral(){
+        $ventas =Venta::get();
         $user_id = Auth::user()->id;
         $user_email =Auth::user()->email;
         $admin1 = Administrativo::where('correo',$user_email)->first();
         $lista = Lista::where('administrativo_id',$admin1->id)->get();
         $clientes = Cliente::get();
-        ;
-        return view('administrativos.mensajesMasivos',compact('clientes','lista'));
+       
+        return view('administrativos.mensajesMasivos',compact('clientes','lista','ventas'));
 
 
+    }
+    public function enviarMasivos(Request $request){
+
+        $inputs = $request->all();
+        $mensaje = $inputs['mensaje'];
+        $clientes = $inputs['clientes'];
+       // $admin = $inputs['administrativo_id'];
+        $correo= Auth::user()->email;
+        $admin = Administrativo::where('correo',$correo)->first()->id;
+            for($i=0;$i<count($clientes);$i++){
+                Mensaje::create([
+                    'cliente_id' =>$clientes[$i],
+                    'administrativo_id' => $admin,
+                    'descripcion' => $mensaje,
+                    'tipo' =>$inputs['tipo'],
+                ]);
+
+            }
+        return redirect()->back();
+    }
+    public function enviarMasivos1(Request $request){
+
+        $inputs = $request->all();
+        $mensaje = $inputs['mensaje'];
+        $clientes = $inputs['clientes'];
+       // $admin = $inputs['administrativo_id'];
+        $correo= Auth::user()->email;
+        $admin = Administrativo::where('correo',$correo)->first()->id;
+            for($i=0;$i<count($clientes);$i++){
+                Notificacion::create([
+                    'cliente_id' =>$clientes[$i],
+                    'administrativo_id' => $admin,
+                    'descripcion' => $mensaje,
+                    'tipo' =>$inputs['tipo'],
+                ]);
+
+            }
+        return redirect()->back();
     }
 
     /**
@@ -285,6 +334,60 @@ class AdministrativoController extends Controller
         $admin->update([
             'estado' => 2
         ]);
+        
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_ELIMINO_ANULO,
+            'tabla' => 'administrativos',
+            'datos' => 'Se ELIMINO DATOS  ',
+    
+          ]);
         return redirect()->route('administrativos.index')->with('success','eliminado con exito');
     }
+    public function pasarAespera(Cliente $cliente){
+        $cliente =Cliente::where('id',$cliente->id)->first(); 
+        
+        $cliente->update([
+          'tipo_cliente' => 3,
+      ]);
+      $clientes =Cliente::where('tipo_cliente',3)->get();
+      return view('negocios.espera',compact('clientes'));
+    }
+    public function espera()
+    {   $clientes = Cliente::where('tipo_cliente',3)->get();
+        return view('negocios.espera',compact('clientes'));
+       }
+
+
+    public function pasarAproceso(Cliente $cliente){
+        $cliente =Cliente::where('id',$cliente->id)->first(); 
+        
+        $cliente->update([
+          'tipo_cliente' => 4,
+      ]);
+      $clientes =Cliente::where('tipo_cliente',4)->get();
+      return view('negocios.proceso',compact('clientes'));
+    }
+    public function proceso()
+    {   $clientes = Cliente::where('tipo_cliente',4)->get();
+               return view('negocios.proceso',compact('clientes'));
+           } 
+           
+    public function pasarAterminado(Cliente $cliente){
+        $cliente =Cliente::where('id',$cliente->id)->first(); 
+       
+        $cliente->update([
+          'tipo_cliente' => 5,
+      ]);
+      $clientes =Cliente::where('tipo_cliente',5)->get();
+      return view('negocios.terminado',compact('clientes'));
+    }
+  
+     
+          public function terminado()
+          {   $clientes = Cliente::where('tipo_cliente',5)->get();
+              return view('negocios.terminado',compact('clientes'));
+             }
+
+
 }

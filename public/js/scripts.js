@@ -229,6 +229,6 @@ function compra(){
 })*/
 console.log(com);
 
-
+  
 }
 

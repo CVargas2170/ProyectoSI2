@@ -67,7 +67,7 @@ crossorigin="anonymous">
 
   
 
-    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
 
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
@@ -499,7 +499,23 @@ crossorigin="anonymous">
             </div>
           </div>
           <div class="col-sm-5">
-            Notificaciones
+            <h4 class="card-title">Notificaciones</h4>      
+           <div class="card ">
+            <div class="tarjeta_notificacion">
+             
+             @if (!isset($notificaciones))
+                 <h3>No tiene notificaciones</h3>
+              @endif
+
+             @foreach ($notificaciones as $item)
+                <div class="card-body  notificacion" >
+                  <h6 class="card-title letra_notifi" style="color: rgb(47, 0, 255) "> CalzadoManía:</h6>
+                  <p style="text-align:center;"> {{$item->descripcion}}</p>
+                </div>
+            @endforeach
+      
+           </div>
+          </div>
 
           </div>
           <div class="col-sm-5">
@@ -551,7 +567,9 @@ crossorigin="anonymous">
  
 
 
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js">
+     
+    </script>
   </body>
 </html>
 

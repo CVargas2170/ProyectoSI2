@@ -63,7 +63,7 @@
                                 </td>
 
                             {{-- @endcan --}}
-                            <td class="text-center">
+                      {{-- <      <td class="text-center">
                                 <form action="{{route('ventas.destroy')}}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -75,7 +75,7 @@
                                     </button>
                                 </form>
                                 </a>
-                            </td>
+                            </td>--}}
                         </tr>
                         @endforeach
                     

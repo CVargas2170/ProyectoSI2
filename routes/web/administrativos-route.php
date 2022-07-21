@@ -40,9 +40,21 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
     Route::post('/sending',[AdministrativoController::class,'enviar'])->name('enviar');
 
     Route::get('/mesagges/General',[AdministrativoController::class,'enviarGeneral'])->name('masivos');
+    Route::post('/sending/masivos',[AdministrativoController::class,'enviarMasivos'])->name('enviarMasivos');
 
     Route::get('/mensajes',[AdministrativoController::class,'showMessage1'])->name('viewMessages1');
+    Route::post('/sending/todos',[AdministrativoController::class,'enviarMasivos1'])->name('enviarMasivos1');
+
+    Route::get('/espera/{cliente}',[AdministrativoController::class,"pasarAespera"])->name("pasarAespera");
+    Route::get('/espera',[AdministrativoController::class,"espera"])->name("espera");
+
+    Route::get('/proceso/{cliente}',[AdministrativoController::class,"pasarAproceso"])->name("pasarAproceso");
+    Route::get('/proceso',[AdministrativoController::class,"proceso"])->name("proceso");
+
+    Route::get('/terminado/{cliente}',[AdministrativoController::class,"pasarAterminado"])->name("pasarAterminado");
+    Route::get('/terminado',[AdministrativoController::class,"terminado"])->name("terminado");
 });
+
 
 
 
