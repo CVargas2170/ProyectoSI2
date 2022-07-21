@@ -253,11 +253,11 @@ return [
             'route'  => 'administrativos.index',
             'icon' => 'fas fa-fw fa-user',
         ],
-          [
+     /*     [
             'text' => 'calzado',
             'route'  => 'administrativos.calzado',
             'icon' => 'fas fa-fw fa-user',
-        ],
+        ],*/
         [
             'text' => 'Clientes',
             'route'  => 'clientes.index',
@@ -288,7 +288,7 @@ return [
         [
             'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
-            'can' => 'creaRoles',
+           // 'can' => 'creaRoles',
             'submenu' => [
                 [
                     'text' => 'Roles',
@@ -347,7 +347,7 @@ return [
            'route'  => 'bitacoras.index',
 
             'icon' => 'fas fa-fire-alt',
-            'can' => 'VerBitacora', // ASIGNACION DEL PERMISO
+      //      'can' => 'VerBitacora', // ASIGNACION DEL PERMISO
         ],
 
         ['header' => 'Negocio'],

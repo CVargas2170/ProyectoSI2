@@ -6,7 +6,7 @@
         <img
             class="imagen"
             id="picture"
-            src="{{isset($promocion) ? '/img'.'/'.$promocion->imagen:'https://www.bootdey.com/app/webroot/img/hero-graphic.png'}}"
+            src="{{isset($promocion) ? '/img/promocion'.'/'.$promocion->imagen:'https://www.bootdey.com/app/webroot/img/hero-graphic.png'}}"
             alt=""
             width="250px"
             value="{{old('picture')}}"
