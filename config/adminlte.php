@@ -288,7 +288,7 @@ return [
         [
             'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
-            'can' => 'creaRoles',
+            // 'can' => 'creaRoles',
             'submenu' => [
                 [
                     'text' => 'Roles',

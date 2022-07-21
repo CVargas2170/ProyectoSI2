@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Promocion;
 use App\Models\Calzado;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Bitacora\Bitacora;
 
 
 class PromocionController extends Controller
@@ -46,10 +48,13 @@ class PromocionController extends Controller
         $inputs = $request->all();
         $id=substr($inputs['calzado_id'],0,1);
         $imagen = substr($inputs['calzado_id'],2,strlen($inputs['calzado_id'])-1);
-        //dd($imagen);
+        
         $inputs['calzado_id']=$id;
         $inputs['imagen']=$imagen;
         //dd($inputs);
+
+
+
         
         $promocion = Promocion::create([
             'descripcion'=>$inputs['descripcion'],
@@ -60,6 +65,15 @@ class PromocionController extends Controller
             'calzado_id' => $id,
 
         ]);
+
+
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_CREO,
+            'tabla' => 'Promociones',
+            'datos' => 'Se creo una nueva promocion ',
+    
+          ]);
 
         
         return redirect()->route('promociones.index');
@@ -115,6 +129,15 @@ class PromocionController extends Controller
             'calzado_id' => $id,
 
         ]);
+
+
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_EDITO,
+            'tabla' => 'Promociones',
+            'datos' => 'Se edito una promocion  existente',
+    
+          ]);
         return redirect()->route('promociones.index');
     }
 
@@ -133,6 +156,15 @@ class PromocionController extends Controller
             'estado' => 0,
 
         ]);
+
+
+        Bitacora::create([
+            'user_id' => Auth::user->id,
+            'accion' => Bitacora::TIPO_ELIMINO_ANULO,
+            'tabla' => 'Promociones',
+            'datos' => 'Se Elimino una promocion  existente',
+    
+          ]);
         return redirect()->route('promociones.index');
     }
 }

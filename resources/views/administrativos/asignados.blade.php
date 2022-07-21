@@ -41,6 +41,9 @@
                      <th>
                            Apellido
                        </th>
+                       <th>
+                        Tipo Cliente
+                    </th>
                     <!--     <th>
                            Ci
                        </th>
@@ -64,9 +67,9 @@
                 <tbody>
 
                     @foreach($listas as $lista)
-                        <tr>
-                            
-                        
+                          
+                         <tr>
+                         
 
                             <td>
                 
@@ -80,6 +83,14 @@
                                 {{$clientes->where('id',$lista->cliente_id)->first()->apellido}}
                               
                           </td>
+                          <td>
+                                
+                                    
+                                    {{($ventas->where('cliente_id',$lista->cliente_id))->count()>=1 ? 'FIEL' :'NO FIEL'}}
+
+                                
+                            
+                        </td>
                           <td class="text-center">
                               
                                 <a href="{{route('administrativos.viewMessages',$clientes->where('id',$lista->cliente_id)->first()->id)}}">

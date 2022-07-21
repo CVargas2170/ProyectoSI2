@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
 use App\Models\Promocion;
 use App\Models\User;
+use App\Models\Bitacora\Bitacora;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Lista;
 class ClienteController extends Controller
 {
@@ -56,6 +58,14 @@ class ClienteController extends Controller
         $rol_id=2;
         $contraseña = $inputs['nombre'].'123';
       
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_CREO,
+            'tabla' => 'Clientes',
+            'datos' => 'se ingresaron datos a la tabla clientes', 
+    
+          ]);
+
         $persona_id= $cliente->id;
         $this->crearUsuario($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
         
@@ -213,6 +223,14 @@ class ClienteController extends Controller
                 'password' => \bcrypt($inputs['nombre'].'123'),
             ]);
 
+            Bitacora::create([
+                'user_id' => Auth::user()->id,
+                'accion' => Bitacora::TIPO_EDITO,
+                'tabla' => 'Clientes',
+                'datos' => 'Se editaron datos en la tabla clientes', 
+        
+              ]);
+
             $cliente->update($inputs);
             return redirect()->route('clientes.index')->with('success','Cliente Editado correctamente');
     }
@@ -231,6 +249,15 @@ class ClienteController extends Controller
         $cliente->update([
             'estado' => 2,
         ]);
+
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_ELIMINO_ANULO,
+            'tabla' => 'Clientes',
+            'datos' => 'Se elimino de la tabla Clientes', 
+    
+          ]);
+
         return redirect()->route('clientes.index')->with('danger','Cliente Eliminado Existosamente');
     }
 }

@@ -9,6 +9,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Models\Bitacora\Bitacora;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Venta\Venta;
 use Illuminate\Support\Facades\DB;
 use App\Models\Calzado;
 use App\Models\Cliente\Cliente;
@@ -76,7 +77,9 @@ class AdministrativoController extends Controller
         $listas = Lista::where('administrativo_id',$admin1->id)->get();
         $clientes = Cliente::get();
         $administrativos = Administrativo::get();
-       return view('administrativos.asignados',compact('listas','clientes','administrativos'));
+        $ventas = Venta::get();
+       
+       return view('administrativos.asignados',compact('listas','clientes','administrativos','ventas'));
     }
     /**
      * Show the form for creating a new resource.
@@ -216,6 +219,16 @@ class AdministrativoController extends Controller
         $name= $inputs['nombre'];
         $usuario = User::where('tipo_id',1)->where('persona_id',$administrativo->id)->first();
 
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_EDITO,
+            'tabla' => 'administrativos',
+            'datos' => 'Edito datos de la tabla Administtrativo',
+    
+          ]);
+
+        
+
         $usuario->update([
             'email' => $email,
             'name' => $name,
@@ -226,15 +239,34 @@ class AdministrativoController extends Controller
     }
 
     public function enviarGeneral(){
+
+        
         $user_id = Auth::user()->id;
         $user_email =Auth::user()->email;
         $admin1 = Administrativo::where('correo',$user_email)->first();
         $lista = Lista::where('administrativo_id',$admin1->id)->get();
         $clientes = Cliente::get();
-        ;
         return view('administrativos.mensajesMasivos',compact('clientes','lista'));
 
 
+    }
+
+    public function enviarMasivos(Request $request){
+
+        $inputs = $request->all();
+        $mensaje = $inputs['mensaje'];
+        $clientes = $inputs['clientes'];
+        $admin = $inputs['administrativo_id'];
+            for($i=0;$i<count($clientes);$i++){
+                Mensaje::create([
+                    'cliente_id' =>$clientes[$i],
+                    'administrativo_id' => $admin,
+                    'mensaje' => $mensaje,
+                    'tipo' =>$inputs['tipo'],
+                ]);
+
+            }
+        return redirect()->back();
     }
 
     /**
@@ -245,12 +277,26 @@ class AdministrativoController extends Controller
      */
     public function destroy( Request $request)
     {
+
+
+
+
         $inputs = $request->all();
         $id = $inputs['admin_id'];
         $admin = Administrativo::find($id);
         $admin->update([
             'estado' => 2
         ]);
+
+        Bitacora::create([
+            'user_id' => Auth::user()->id,
+            'accion' => Bitacora::TIPO_ELIMINO_ANULO,
+            'tabla' => 'administrativos',
+            'datos' => 'Se ELIMINO DATOS  ',
+    
+          ]);
+
+        
         return redirect()->route('administrativos.index')->with('success','eliminado con exito');
     }
 }
